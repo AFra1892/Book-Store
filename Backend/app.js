@@ -3,7 +3,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
-const mongoDBURL  = 'mongodb+srv://liverpool1892ynwaaa:Ld9xO61j1ZotB0eP@book-store-mern.gswjzih.mongodb.net/books-collection?retryWrites=true&w=majority'
 
 mongoose
     .connect(mongoDBURL)
