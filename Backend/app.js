@@ -20,9 +20,7 @@ app.get('/',async(req,res)=>{
 
 app.post('/',async(req,res)=>{
     try {
-        const book = await Book.create({
-           
-        })
+        const book = await Book.create(req.body)
         res.status(201).send({book})
     } catch (error) {
         console.log(error);
@@ -38,6 +36,18 @@ app.get('/:id',async(req,res)=>{
             data:singleBook
         })
         
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+app.delete('/:id',async(req,res)=>{
+    try {
+        const {id} = req.params
+        await Book.findByIdAndDelete(id)
+        console.log("book deleted");
+        res.status(200).send('book was deleted')
+
     } catch (error) {
         console.log(error);
     }
