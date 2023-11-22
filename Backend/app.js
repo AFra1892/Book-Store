@@ -2,9 +2,13 @@ const express = require('express')
 const connect = require('./db/connect')
 require('dotenv').config()
 const bookRouter = require('./router/Book')
+const cors  = require('cors')
 const app = express()
 
 app.use('/book',bookRouter)
+
+//midlware for handeling CORS POLICI
+app.use(cors());
 
 const start = async()=>{
     try {
